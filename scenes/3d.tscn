@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=3 uid="uid://djfp7a5aex6lw"]
+
+[ext_resource type="ArrayMesh" uid="uid://dc0at8thb1qcu" path="res://addons/kaykit_halloween_bits/Assets/obj/path_A.obj" id="1_bgcsl"]
+[ext_resource type="ArrayMesh" uid="uid://chms8134g7ucj" path="res://addons/kaykit_halloween_bits/Assets/obj/path_B.obj" id="2_ykot5"]
+[ext_resource type="ArrayMesh" uid="uid://cn2t1qplu4y54" path="res://addons/kaykit_halloween_bits/Assets/obj/path_C.obj" id="3_jqfac"]
+[ext_resource type="ArrayMesh" uid="uid://ctgdltgmw0p7t" path="res://addons/kaykit_halloween_bits/Assets/obj/path_D.obj" id="4_rpdou"]
+[ext_resource type="ArrayMesh" uid="uid://dcd4nuyiqxaop" path="res://addons/kaykit_halloween_bits/Assets/obj/grave_A.obj" id="5_pst6x"]
+[ext_resource type="ArrayMesh" uid="uid://c3tvfwiskels3" path="res://addons/kaykit_halloween_bits/Assets/obj/lantern_standing.obj" id="6_l4gn1"]
+[ext_resource type="ArrayMesh" uid="uid://dfdm6c1tgnxag" path="res://addons/kaykit_halloween_bits/Assets/obj/plaque_candles.obj" id="7_rjob2"]
+[ext_resource type="ArrayMesh" uid="uid://c4x8f3ihatybu" path="res://addons/kaykit_halloween_bits/Assets/obj/tree_pine_orange_small.obj" id="8_kvto2"]
+[ext_resource type="ArrayMesh" uid="uid://cwgtxh10rhdsu" path="res://addons/kaykit_halloween_bits/Assets/obj/fence_gate_left.obj" id="9_5rtuf"]
+[ext_resource type="ArrayMesh" uid="uid://bgn3hmgt2wa3" path="res://addons/kaykit_halloween_bits/Assets/obj/fence_gate_right.obj" id="10_fcfrh"]
+[ext_resource type="ArrayMesh" uid="uid://hh6ngwtujq0p" path="res://addons/kaykit_halloween_bits/Assets/obj/floor_dirt_small.obj" id="11_tcggy"]
+
+[sub_resource type="Environment" id="Environment_gqsxm"]
+background_mode = 1
+background_color = Color(0.0431373, 0.027451, 0.14902, 1)
+background_energy_multiplier = 1.34
+ambient_light_color = Color(0.945098, 0.537255, 0, 1)
+ambient_light_energy = 4.2
+tonemap_mode = 2
+tonemap_white = 0.9
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+fog_light_color = Color(0.0431373, 0.027451, 0.14902, 1)
+fog_light_energy = 2.52
+fog_sun_scatter = 0.13
+fog_density = 0.0
+fog_height_density = 1.3474
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.015
+volumetric_fog_albedo = Color(0.709804, 0.713726, 0.960784, 1)
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ncq2y"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PathA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.272596, 0, 0.286726)
+mesh = ExtResource("1_bgcsl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.744055, -0.359186, 0.563354, 5.18678e-09, 0.843195, 0.537609, -0.668118, -0.40001, 0.627383, 5.08389, 3.99092, 3.17081)
+fov = 54.2
+size = 21.721
+
+[node name="PathB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29996, 0, 0.281611)
+mesh = ExtResource("2_ykot5")
+
+[node name="PathC" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12566, 0, -1.71745)
+mesh = ExtResource("3_jqfac")
+
+[node name="PathD" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0509117, -4.76837e-07, -1.7373)
+mesh = ExtResource("4_rpdou")
+
+[node name="GraveA" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.591873, 0, 0.806032, 0, 1, 0, -0.806032, 0, 0.591873, 0.339628, 0, -1.67583)
+mesh = ExtResource("5_pst6x")
+
+[node name="LanternStanding" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375233, 0, -0.206697)
+mesh = ExtResource("6_l4gn1")
+
+[node name="PlaqueCandles" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23702, -0.360374, -0.973986)
+mesh = ExtResource("7_rjob2")
+
+[node name="TreePineOrangeSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52389, -2.38419e-07, -2.05636)
+mesh = ExtResource("8_kvto2")
+
+[node name="FenceGateLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.585, -1.12008, -0.72)
+mesh = ExtResource("9_5rtuf")
+
+[node name="FenceGateRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.585, -1.12008, -0.72)
+mesh = ExtResource("10_fcfrh")
+
+[node name="FenceGateLeft2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.30369, -1.13155, -2.53331)
+mesh = ExtResource("9_5rtuf")
+skeleton = NodePath("../FenceGateRight")
+
+[node name="FenceGateRight2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.30369, -1.13155, -2.53331)
+mesh = ExtResource("10_fcfrh")
+skeleton = NodePath("../FenceGateRight")
+
+[node name="FloorDirtSmall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29258, 0, -1.70957)
+mesh = ExtResource("11_tcggy")
+skeleton = NodePath("../FloorDirtSmall3")
+
+[node name="FloorDirtSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297343, 0, 0.287762)
+mesh = ExtResource("11_tcggy")
+
+[node name="FloorDirtSmall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.298457, 0, -1.71267)
+mesh = ExtResource("11_tcggy")
+skeleton = NodePath("../FloorDirtSmall")
+
+[node name="FloorDirtSmall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29147, 0, 0.290854)
+mesh = ExtResource("11_tcggy")
+skeleton = NodePath("../FloorDirtSmall")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.39172, 8.49003, -0.613553)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gqsxm")
+camera_attributes = SubResource("CameraAttributesPractical_ncq2y")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-0.722798, -0.142983, -0.676105, 3.07797e-08, 0.978361, -0.206904, 0.691059, -0.14955, -0.707158, -0.0203328, 0.36934, 0.163638)
+light_color = Color(1, 0.482353, 0, 1)
+omni_range = 1.941
+omni_attenuation = 2.14354
+
+[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D"]
+transform = Transform3D(-1, -1.04308e-07, 1.49012e-07, -1.04308e-07, 1, 2.98023e-08, -1.49012e-07, 2.23517e-08, -1, -0.570417, -0.107168, 0.0158305)
+light_color = Color(1, 0.482353, 0, 1)
+omni_range = 1.941
+omni_attenuation = 2.14354
+
+[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D/OmniLight3D"]
+transform = Transform3D(-1, -3.94881e-07, 1.19209e-07, -4.24683e-07, 1, 7.45058e-09, -8.9407e-08, 2.23517e-08, -1, -0.074101, 0.116107, -0.541518)
+light_color = Color(1, 0.482353, 0, 1)
+omni_range = 1.941
+omni_attenuation = 2.14354
+
+[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D/OmniLight3D/OmniLight3D"]
+transform = Transform3D(-1, -4.76837e-07, 8.9407e-08, -4.76837e-07, 1, 1.49012e-08, -5.96046e-08, 2.98023e-08, -1, -1.08306, 0.390678, -0.308059)
+light_color = Color(1, 0.482353, 0, 1)
+omni_range = 1.941
+omni_attenuation = 2.14354
+
+[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D/OmniLight3D/OmniLight3D/OmniLight3D"]
+transform = Transform3D(-1, -4.69387e-07, 1.19209e-07, -4.91738e-07, 1, 2.23517e-08, -8.9407e-08, 2.23517e-08, -1, 0.16061, -0.123137, 0.799162)
+light_color = Color(1, 0.482353, 0, 1)
+omni_range = 1.941
+omni_attenuation = 2.14354

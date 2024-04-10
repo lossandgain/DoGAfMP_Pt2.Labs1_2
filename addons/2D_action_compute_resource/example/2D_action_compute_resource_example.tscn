@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://ge24hepoml1u"]
+
+[ext_resource type="Script" path="res://addons/2D_action_compute_resource/resource/HorizontalComputeResource.gd" id="1_jhgih"]
+[ext_resource type="Script" path="res://addons/2D_action_compute_resource/resource/VerticalComputeResource.gd" id="2_8t763"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixqk4"]
+size = Vector2(16, 16)
+
+[sub_resource type="GDScript" id="GDScript_wcpvp"]
+script/source = "extends CharacterBody2D
+
+
+@export var horizontal_compute_resource: HorizontalComputeResource
+@export var vertical_compute_resource: VerticalComputeResource
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity: int = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += vertical_compute_resource.get_gravity() * delta
+
+	# Handle Jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = vertical_compute_resource.get_main_jump_velocity()
+
+	if Input.is_action_just_released(\"ui_accept\") and !is_on_floor():
+		velocity.y = vertical_compute_resource.get_compute_sub_jump_velocity( velocity.y )
+	
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	velocity.x = horizontal_compute_resource.get_applied_horizontal_velocity( velocity.x, direction, delta)
+
+	move_and_slide()
+"
+
+[sub_resource type="Resource" id="Resource_6nelv"]
+script = ExtResource("1_jhgih")
+unit_size = 64
+max_speed = 4.0
+max_speed_distance = 0.4
+deceleration_mode = 0
+stopping_distance = 0.2
+stopping_time = 0.2
+
+[sub_resource type="Resource" id="Resource_1b6hq"]
+script = ExtResource("2_8t763")
+unit_size = 64
+main_jump_apex_height = 3.0
+main_jump_apex_time = 0.5
+sub_jump_mode = 0
+sub_jump_apex_height = 1.0
+sub_jump_factor = 0.5
+option_jump_apex_height = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_527kn"]
+size = Vector2(16, 16)
+
+[node name="2DActionComputeResourceExample" type="Node2D"]
+
+[node name="Envirsment" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Envirsment"]
+position = Vector2(592, 640)
+scale = Vector2(82.3933, -7.72)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Envirsment/Ground"]
+shape = SubResource("RectangleShape2D_ixqk4")
+
+[node name="ColorRect" type="ColorRect" parent="Envirsment/Ground"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Unit" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Unit"]
+position = Vector2(576, 512)
+scale = Vector2(4, 4)
+script = SubResource("GDScript_wcpvp")
+horizontal_compute_resource = SubResource("Resource_6nelv")
+vertical_compute_resource = SubResource("Resource_1b6hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Unit/CharacterBody2D"]
+shape = SubResource("RectangleShape2D_527kn")
+
+[node name="ColorRect" type="ColorRect" parent="Unit/CharacterBody2D"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0.243137, 0.243137, 1)
